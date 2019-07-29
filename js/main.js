@@ -32,8 +32,6 @@ function findNumber(event) {
 }
 
 
-
-
 //Poner el botón a escuchar el evento
 prube.addEventListener('click', findNumber);
 
