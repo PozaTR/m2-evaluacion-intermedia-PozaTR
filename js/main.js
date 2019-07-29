@@ -12,9 +12,10 @@ let changeNumber = 0;
 const guessNumber = {
     magicNumber: 50, 
     highNumber:'demasiado alto',
-    lowNumber: 'demasiado bajo',   
+    lowNumber: 'demasiado bajo', 
 }
 
+  
 //Crear función
 function findNumber(event) {
     if (number.value < 50) {
@@ -34,4 +35,11 @@ function findNumber(event) {
 //Poner el botón a escuchar el evento
 prube.addEventListener('click', findNumber);
 
-
+function getRandomNumber(max) {
+    return Math.ceil(Math.random() * max);
+  }
+  
+  // Anda, chacho, píntame en la consola un número random hasta 100;
+  const myRandomNumber = getRandomNumber(100);
+  
+  console.log(`Mi número aleatorio es ${myRandomNumber}`);

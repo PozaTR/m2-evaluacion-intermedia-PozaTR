@@ -1,0 +1,32 @@
+body {
+    background-color: grey;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    min-height:100vh;
+}
+.container2 {
+    padding:30px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.text {
+    width: 250px;
+    height: 30px;
+    border: 2px solid greenyellow;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.count {
+    width: 30px;
+    height: 30px;
+    border: 2px solid greenyellow;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-right:30px; ;
+
+}
