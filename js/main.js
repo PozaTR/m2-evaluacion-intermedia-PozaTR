@@ -8,19 +8,28 @@ const count = document.querySelector('.count');
 let changeNumber = 0;
 
 
+function getRandomNumber(max) {
+    return Math.ceil(Math.random() * max);
+  }
+
+const myRandomNumber = getRandomNumber(100);
+
+
 //Crear Objeto
 const guessNumber = {
-    magicNumber: 50, 
+    magicNumber: myRandomNumber, 
     highNumber:'demasiado alto',
     lowNumber: 'demasiado bajo', 
 }
 
+//Función reset el número random
+
   
 //Crear función
 function findNumber(event) {
-    if (number.value < 50) {
+    if (number.value < guessNumber.magicNumber) {
         text.innerHTML = guessNumber.lowNumber;
-    } else if (number.value > 50) {
+    } else if (number.value > guessNumber.magicNumber) {
         text.innerHTML = guessNumber.highNumber;
     } else {
         text.innerHTML = '¡HAS GANADO, CAMPEONA!'; 
@@ -34,12 +43,3 @@ function findNumber(event) {
 
 //Poner el botón a escuchar el evento
 prube.addEventListener('click', findNumber);
-
-function getRandomNumber(max) {
-    return Math.ceil(Math.random() * max);
-  }
-  
-  // Anda, chacho, píntame en la consola un número random hasta 100;
-  const myRandomNumber = getRandomNumber(100);
-  
-  console.log(`Mi número aleatorio es ${myRandomNumber}`);
