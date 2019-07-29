@@ -22,9 +22,6 @@ const guessNumber = {
     lowNumber: 'demasiado bajo', 
 }
 
-//Función reset el número random
-
-  
 //Crear función
 function findNumber(event) {
     if (number.value < guessNumber.magicNumber) {
