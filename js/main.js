@@ -1,12 +1,10 @@
 'use strict'
 
-//Seleccionar los elementos con los que vamos a trabajar
 const number = document.querySelector('.number');
-const prube = document.querySelector('.button');
+const test = document.querySelector('.button');
 const text = document.querySelector('.text');
 const count = document.querySelector('.count');
 let changeNumber = 0;
-
 
 function getRandomNumber(max) {
     return Math.ceil(Math.random() * max);
@@ -14,15 +12,12 @@ function getRandomNumber(max) {
 
 const myRandomNumber = getRandomNumber(100);
 
-
-//Crear Objeto
 const guessNumber = {
     magicNumber: myRandomNumber, 
     highNumber:'demasiado alto',
     lowNumber: 'demasiado bajo', 
 }
 
-//Crear función
 function findNumber(event) {
     if (number.value < guessNumber.magicNumber) {
         text.innerHTML = guessNumber.lowNumber;
@@ -37,6 +32,4 @@ function findNumber(event) {
     count.innerHTML = changeNumber;
 }
 
-
-//Poner el botón a escuchar el evento
-prube.addEventListener('click', findNumber);
+test.addEventListener('click', findNumber);
