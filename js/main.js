@@ -11,20 +11,19 @@ let changeNumber = 0;
 //Crear Objeto
 const guessNumber = {
     magicNumber: 50, 
-    highNumber:'',
-    lowNumber: '',   
+    highNumber:'demasiado alto',
+    lowNumber: 'demasiado bajo',   
 }
 
 //Crear función
 function findNumber(event) {
     if (number.value < 50) {
-        text.innerHTML = 'demasiado bajo';
+        text.innerHTML = guessNumber.lowNumber;
     } else if (number.value > 50) {
-        text.innerHTML = 'demasiado alto';
+        text.innerHTML = guessNumber.highNumber;
     } else {
         text.innerHTML = '¡HAS GANADO, CAMPEONA!'; 
     }
-    console.log('todo ok');
     const value = event.currentTarget.value;
     count.innerHTML = value;
     changeNumber = changeNumber + 1;
