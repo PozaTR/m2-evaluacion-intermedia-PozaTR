@@ -14,10 +14,12 @@ function resetNumbers() {
     number.value = config.default.number;
     count.innerHTML = config.default.count;
     text.innerHTML = config.default.text;
+    config.state.magicNumber = getRandomNumber(100);
 }
 
 function findNumber(event) {
     event.preventDefault();
+    
     if (number.value === '') {
         text.innerHTML = config.messages.emptyValue;
     }else {
