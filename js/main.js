@@ -1,10 +1,10 @@
 'use strict'
 
-const number = document.querySelector('.number');
+const number = document.querySelector('.js__number');
 const form = document.querySelector('.js__form');
-const text = document.querySelector('.text');
-const count = document.querySelector('.count');
-const reset = document.querySelector('.reset');
+const text = document.querySelector('.js__text');
+const count = document.querySelector('.js__count');
+const reset = document.querySelector('.js__reset');
 
 function getRandomNumber(max) {
     return Math.ceil(Math.random() * max);
@@ -49,11 +49,11 @@ const config = {
     },
     messages: {
         magicNumber: '¡HAS GANADO, CAMPEONA!', 
-        highNumber:'demasiado alto',
-        lowNumber: 'demasiado bajo', 
-        minNumber: 'no puedes escribir un número menor que 0',
-        maxNumber: 'no puedes escribir un número mayor que 100',
-        emptyValue: 'debes meter un número para empezar a jugar'
+        highNumber:'Demasiado alto',
+        lowNumber: 'Demasiado bajo', 
+        minNumber: 'No puedes escribir un número menor que 0',
+        maxNumber: 'No puedes escribir un número mayor que 100',
+        emptyValue: 'Debes meter un número para empezar a jugar'
     },
     state: {
         count: 0, 
