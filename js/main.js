@@ -1,7 +1,7 @@
 'use strict'
 
 const number = document.querySelector('.number');
-const test = document.querySelector('.button');
+const form = document.querySelector('.js__form');
 const text = document.querySelector('.text');
 const count = document.querySelector('.count');
 const reset = document.querySelector('.reset');
@@ -17,21 +17,26 @@ function resetNumbers() {
 }
 
 function findNumber(event) {
-    const numberValue = parseInt(number.value);
-    
-    if(numberValue < 0) {
-        text.innerHTML = config.messages.minNumber;
-    }else if (numberValue > 100) {
-        text.innerHTML = config.messages.maxNumber;
-    }else if (numberValue < config.state.magicNumber) {
-        text.innerHTML = config.messages.lowNumber;
-    } else if (numberValue > config.state.magicNumber) {
-        text.innerHTML = config.messages.highNumber;
-    } else {
-        text.innerHTML = config.messages.magicNumber; 
+    event.preventDefault();
+    if (number.value === '') {
+        text.innerHTML = config.messages.emptyValue;
+    }else {
+        const numberValue = parseInt(number.value);
+        
+        if(numberValue < 0) {
+            text.innerHTML = config.messages.minNumber;
+        }else if (numberValue > 100) {
+            text.innerHTML = config.messages.maxNumber;
+        }else if (numberValue < config.state.magicNumber) {
+            text.innerHTML = config.messages.lowNumber;
+        } else if (numberValue > config.state.magicNumber) {
+            text.innerHTML = config.messages.highNumber;
+        } else {
+            text.innerHTML = config.messages.magicNumber; 
+        }
+        config.state.count += 1;
+        count.innerHTML = config.state.count;
     }
-    config.state.count += 1;
-    count.innerHTML = config.state.count;
 }
 
 const config = {
@@ -46,6 +51,7 @@ const config = {
         lowNumber: 'demasiado bajo', 
         minNumber: 'no puedes escribir un número menor que 0',
         maxNumber: 'no puedes escribir un número mayor que 100',
+        emptyValue: 'debes meter un número para empezar a jugar'
     },
     state: {
         count: 0, 
@@ -55,7 +61,7 @@ const config = {
 
 resetNumbers()
 
-test.addEventListener('click', findNumber);
+form.addEventListener('submit', findNumber);
 
 reset.addEventListener('click', resetNumbers);
 
