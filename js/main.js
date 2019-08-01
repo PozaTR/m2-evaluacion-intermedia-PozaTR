@@ -15,6 +15,7 @@ function resetNumbers() {
     count.innerHTML = config.default.count;
     text.innerHTML = config.default.text;
     config.state.magicNumber = getRandomNumber(100);
+    config.state.count = 0;
 }
 
 function findNumber(event) {
