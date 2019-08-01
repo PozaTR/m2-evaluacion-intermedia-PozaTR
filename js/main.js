@@ -5,53 +5,57 @@ const test = document.querySelector('.button');
 const text = document.querySelector('.text');
 const count = document.querySelector('.count');
 const reset = document.querySelector('.reset');
-let changeNumber = 0;
-
-//number = parseInt(number);
-
-const defaultElements = {
-    defaultNumber: 0, 
-    defaultCount: 0,
-    defaultText: 'Escribe un número y dale a prueba',
-}
 
 function getRandomNumber(max) {
     return Math.ceil(Math.random() * max);
-  }
+}
 
-const myRandomNumber = getRandomNumber(100);
-
-const guessNumber = {
-    magicNumber: '¡HAS GANADO, CAMPEONA!', 
-    highNumber:'demasiado alto',
-    lowNumber: 'demasiado bajo', 
-    minNumber: 'no puedes escribir un número menor que 0',
-    maxNumber: 'no puedes escribir un número mayor que 100',
+function resetNumbers() {
+    number.value = config.default.number;
+    count.innerHTML = config.default.count;
+    text.innerHTML = config.default.text;
 }
 
 function findNumber(event) {
-    if(number.value < 0) {
-        text.innerHTML = guessNumber.minNumber;
-    }else if (number.value > 100) {
-        text.innerHTML = guessNumber.maxNumber;
-    }else if (number.value < myRandomNumber) {
-        text.innerHTML = guessNumber.lowNumber;
-    } else if (number.value > myRandomNumber) {
-        text.innerHTML = guessNumber.highNumber;
+    const numberValue = parseInt(number.value);
+    
+    if(numberValue < 0) {
+        text.innerHTML = config.messages.minNumber;
+    }else if (numberValue > 100) {
+        text.innerHTML = config.messages.maxNumber;
+    }else if (numberValue < config.state.magicNumber) {
+        text.innerHTML = config.messages.lowNumber;
+    } else if (numberValue > config.state.magicNumber) {
+        text.innerHTML = config.messages.highNumber;
     } else {
-        text.innerHTML = guessNumber.magicNumber; 
+        text.innerHTML = config.messages.magicNumber; 
     }
-    changeNumber = changeNumber + 1;
-    count.innerHTML = changeNumber;
+    config.state.count += 1;
+    count.innerHTML = config.state.count;
 }
+
+const config = {
+    default: {
+        number: 0, 
+        count: 0,
+        text: 'Escribe un número y dale a prueba',
+    },
+    messages: {
+        magicNumber: '¡HAS GANADO, CAMPEONA!', 
+        highNumber:'demasiado alto',
+        lowNumber: 'demasiado bajo', 
+        minNumber: 'no puedes escribir un número menor que 0',
+        maxNumber: 'no puedes escribir un número mayor que 100',
+    },
+    state: {
+        count: 0, 
+        magicNumber: getRandomNumber(100)
+    }
+}
+
+resetNumbers()
 
 test.addEventListener('click', findNumber);
-
-function resetNumbers() {
-    number.value = defaultElements.defaultNumber;
-    count.innerHTML = defaultElements.defaultCount;
-    text.innerHTML = defaultElements.defaultText;
-}
 
 reset.addEventListener('click', resetNumbers);
 

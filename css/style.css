@@ -1,5 +1,5 @@
-body {
-    background-color: grey;
+.main__container {
+    background:linear-gradient(#e66465, #9198e5);
     display:flex;
     justify-content: center;
     align-items: center;
@@ -7,21 +7,26 @@ body {
     min-height:100vh;
 }
 
+.container {
+    display:flex;
+    flex-direction:column;
+    text-align: center;
+}
+
+.container__number {
+    display:flex;
+    flex-direction:column;
+    text-align: center;
+}
+
 .number {
-    margin-right:30px; 
+    margin:10px 0; 
     border: 2px solid purple;
     padding: 8px;
 }
 
-.container2 {
-    padding:30px;
-    display:flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .text {
-    width: 250px;
+    width: 500px;
     height: 30px;
     border: 2px solid purple;
     display:flex;
@@ -32,9 +37,14 @@ body {
 .count {
     width: 30px;
     height: 30px;
+    border-radius: 50%;
     border: 2px solid purple;
     display:flex;
     justify-content: center;
     align-items: center;
     margin-right:30px; 
+}
+
+.reset {
+    margin:10px 0; 
 }

@@ -9,19 +9,18 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-<body>
-    <div class="container1">
+<body class="main__container">
+    <div class="container">
         <h1 class="title">Adivina el número</h1>
-        <label for="number">Introduce aquí tu número</label>
-        <input id="number" type="number" class="number">
+        <div class="container__number">
+            <label for="number">Introduce aquí tu número</label>
+            <input id="number" type="number" class="number">
+        </div>
         <button class="button">Prueba</button>
     </div>
-    <div class="container2">
-        <div class="count"></div>
-        <div class="text">Escribe un número y dale a prueba</div>
-        <div class="reset">Reset</div>
-    </div>
-
+    <div class="count"></div>
+    <div class="text">Escribe un número y dale a prueba</div>
+    <button class="reset">Reset</button>
     <script type="text/javascript" src="js/main.js"></script>
 </body>
 
